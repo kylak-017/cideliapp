@@ -5,7 +5,7 @@ from django.db import models
 
 #Each class represents a distinct field in the database
 class User(models.Model):
-    full_name = models.CharField(max_length=70)
+    full_name = models.CharField(max_length=70) #(get user id as email)
     pass_word = models.CharField(max_length = 70)
 
     def username(self):

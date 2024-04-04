@@ -14,11 +14,35 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+
+
+#login state (using cookie, check if session is existent)
+#Cart: save as a state (state is saved as a session and session is saved as a cookie) 
+    #cookie disappears when the browser is closed (goes away when you re-login) --> saved to browser
+    #session saves the information connected to the login
+
+
+#Home: default (if (login == false) --> register/login, if(login == true) --> menu/order)
+#Register: /register
+#Login: /login 
+#Profile: /myprofile
+
+
+#Menu: /menu
+    #Item i(as dialog): /menu
+#Order: /order (includes order summary, barcode)
+
+
+#database 1: Our Home (Customer, Menu, Product, Payment....)
+#database 2: Chadwick Users Database (Login Info, CupID, Contact Info, Student ID)
+
+#get database 2 information --> database 1: customer
 from django.contrib import admin
 from django.urls import include, path
 
 
 urlpatterns = [
-    path("", admin.site.urls),
+    path("login", admin.site.urls),
     path("menu/", include("menu.urls"))
 ]
